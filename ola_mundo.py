@@ -6,7 +6,18 @@ print("DEUS é amor")
 
 from random import randint
 from PyQt5 import QtWidgets, uic
-janela=QtWidgets.QApplication([])
-interface=uic.loadUi ("hello_interface.ui")
-def PRINT():
-    interface.label.setText(str(randint(0,700)))
+
+# Carrega a interface do arquivo hello_interface.ui
+janela = QtWidgets.QApplication([])
+interface = uic.loadUi("hello_interface.ui")
+
+# Função para exibir "Deus é Amor" quando o botão for clicado
+def exibir_deus_amor():
+    interface.label.setText("Deus é Amor")
+
+# Conecta o botão à função
+interface.pushButton.clicked.connect(exibir_deus_amor)
+
+# Exibe a interface
+interface.show()
+janela.exec_()
